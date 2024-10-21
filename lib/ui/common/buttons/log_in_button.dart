@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../data/open_api/src/api.dart';
-import '../../domain/auth_state.dart';
-import 'button_style.dart';
+import '../../../data/open_api/src/api.dart';
+import '../../../domain/auth_state.dart';
+import '../button_style.dart';
 
 class LogInButton extends StatelessWidget {
   const LogInButton({

@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'common/button_style.dart';
-import 'common/log_in_button.dart';
+import 'common/buttons/log_in_button.dart';
 import 'common/my_list_title.dart';
-import 'common/sign_up_button.dart';
+import 'common/buttons/sign_up_button.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});

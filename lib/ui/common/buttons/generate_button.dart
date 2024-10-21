@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gpassword/gpassword.dart';
 
-import 'button_style.dart';
+import '../button_style.dart';
 
 class GenerateButton extends StatelessWidget {
   const GenerateButton({

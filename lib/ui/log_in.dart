@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'common/forgot_password.dart';
-import 'common/login_form_field.dart';
-import 'common/password_form_field.dart';
-import 'common/sign_up_button.dart';
+import 'common/buttons/forgot_password.dart';
+import 'common/text_field/login_form_field.dart';
+import 'common/text_field/password_form_field.dart';
+import 'common/buttons/sign_up_button.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
