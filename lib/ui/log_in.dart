@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../data/open_api/src/api.dart';
-import '../domain/auth_state.dart';
 import 'common/forgot_password.dart';
 import 'common/login_form_field.dart';
+import 'common/password_form_field.dart';
 import 'common/sign_up_button.dart';
 
 class LogIn extends StatefulWidget {
@@ -76,7 +74,7 @@ class _LogInState extends State<LogIn> {
           key: _validateKey,
           child: ListView(
             children: [
-              Text(
+              const Text(
                 'LOG IN',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -85,46 +83,15 @@ class _LogInState extends State<LogIn> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text('Login, email or mobile number'),
+              const Text('Login, email or mobile number'),
               LoginFormField(login: _login),
               SizedBox(
                 height: _height,
               ),
               const Text('Password'),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Password is missed or empty";
-                  } else if (value.length < 8) {
-                    return "Password is too short";
-                  } else if (value.length > 50) {
-                    return "Password is too long";
-                  }
-                  return null;
-                },
-                controller: _password,
-                keyboardType: TextInputType.text,
+              PasswordFormField(
+                password: _password,
                 obscureText: obscureText,
-                decoration: InputDecoration(
-                  suffixIcon: IconButton(
-                    icon: const Icon(Icons.remove_red_eye_outlined),
-                    onPressed: () {
-                      obscureText = !obscureText;
-                      setState(() {});
-                    },
-                  ),
-                  fillColor: Colors.white,
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide:
-                        BorderSide(width: 10, color: Colors.deepPurpleAccent),
-                  ),
-                  //isDense: true,
-                  filled: true,
-                  labelText: 'Password',
-                ),
               ),
               const SizedBox(height: 14),
               Row(
