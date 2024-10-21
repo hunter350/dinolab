@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../data/open_api/src/api.dart';
 import '../domain/auth_state.dart';
+import 'common/forgot_password.dart';
+import 'common/sign_up_button.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
@@ -18,6 +20,7 @@ class _LogInState extends State<LogIn> {
   final _login = TextEditingController();
   final _password = TextEditingController();
   final _validateKey = GlobalKey<FormState>();
+  bool obscureText = true;
   final double _height = 20.0;
 
   final ButtonStyle signUpButtonStyle = OutlinedButton.styleFrom(
@@ -99,7 +102,7 @@ class _LogInState extends State<LogIn> {
                 },
                 controller: _login,
                 keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -129,8 +132,15 @@ class _LogInState extends State<LogIn> {
                 },
                 controller: _password,
                 keyboardType: TextInputType.text,
-                obscureText: true,
+                obscureText: obscureText,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.remove_red_eye_outlined),
+                    onPressed: () {
+                      obscureText = !obscureText;
+                      setState(() {});
+                    },
+                  ),
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -193,30 +203,11 @@ class _LogInState extends State<LogIn> {
                       ),
                     ),
                   ),
-                  TextButton(
-                      style: forgotButtonStyle,
-                      onPressed: () {},
-                      child: const Text('FORGOT PASSWORD',
-                          maxLines: 2,
-                          style: TextStyle(
-                              fontSize: 18, color: Colors.deepPurpleAccent))),
+                  ForgotPassword(forgotButtonStyle: forgotButtonStyle),
                 ],
               ),
               const SizedBox(height: 14),
-              ElevatedButton(
-                style: signUpButtonStyle,
-                onPressed: () {
-                  context.go('/sign_up');
-                },
-                child: const Text(
-                  'SIGN UP',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              SignUpVar2(signUpButtonStyle: signUpButtonStyle),
             ],
           ),
         ),
@@ -224,3 +215,5 @@ class _LogInState extends State<LogIn> {
     );
   }
 }
+
+
