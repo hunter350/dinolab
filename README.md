@@ -3,9 +3,14 @@
 DinoLab project.
 
 ## Screens
-Home
+Home Screen
 <h1>
   <img src="https://github.com/hunter350/dinolab/blob/master/screenshots/home.PNG" alt="Image" width="200" style="border-radius: 10px;"> </img>
+</h1>
+
+Home Screen with Drawer
+<h1>
+  <img src="https://github.com/hunter350/dinolab/blob/master/screenshots/home_drawer.PNG" alt="Image" width="200" style="border-radius: 10px;"> </img>
 </h1>
 
 ## Архитектура проекта
