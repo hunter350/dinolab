@@ -62,7 +62,7 @@ class _SignUpState extends ConsumerState<SignUp> {
             const Text('Register as a Parent',
                 style: TextStyle(
                   color: Colors.black87,
-                  fontSize: 18,
+                  fontSize: 16,
                 )),
             Image.asset(
               'assets/logo.png',
@@ -120,7 +120,11 @@ class _SignUpState extends ConsumerState<SignUp> {
               const Text('Password'),
               TextFormField(
                 onChanged: (value) {
-                  ref.read(checkPasswordProvider.notifier).state = value;
+                  if(_password.text == ''){
+                    ref.read(checkPasswordProvider.notifier).state = '';
+                  }else{
+                    ref.read(checkPasswordProvider.notifier).state = value;
+                  }
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {

@@ -7,8 +7,6 @@ import '../common/my_list_title.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -38,6 +36,7 @@ class HomePage extends StatelessWidget {
           'assets/logo.png',
           width: 120,
         ),
+        centerTitle: true,
         iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
       ),
       drawer: Drawer(
