@@ -92,6 +92,8 @@ class _LogInState extends State<LogIn> {
                     return "Email is missed or empty";
                   } else if (value.length > 50) {
                     return "Email is too long";
+                  }else if(!value.contains('@') || !value.contains('.')){
+                    return "Email isn't valid";
                   }
                   return null;
                 },
