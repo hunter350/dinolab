@@ -2,12 +2,10 @@ import 'package:dinolab/ui/common/button_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:gpassword/gpassword.dart';
-import '../data/open_api/src/api.dart';
-import '../domain/auth_state.dart';
 import '../domain/check_password_not_empty.dart';
-import 'auth_info_page.dart';
-import 'log_in.dart';
+import 'common/generate_button.dart';
+import 'common/log_in_button.dart';
+import 'common/mobile_number_text_field.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});
@@ -61,7 +59,7 @@ class _SignUpState extends ConsumerState<SignUp> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text('Register as a Parent',
+            const Text('Register as a Parent',
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 18,
@@ -81,7 +79,7 @@ class _SignUpState extends ConsumerState<SignUp> {
           key: _validateKey,
           child: ListView(
             children: [
-              Text('Email', style: TextStyle(fontSize: 16)),
+              const Text('Email', style: TextStyle(fontSize: 16)),
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -119,32 +117,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                 height: _height,
               ),
               Text('Mobile number'),
-              TextFormField(
-                maxLength: 15,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Input";
-                  } else if (value.length < 8) {
-                    return "Input";
-                  }
-                  return null;
-                },
-                controller: _mobileNumber,
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  fillColor: Colors.white,
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide:
-                        BorderSide(width: 10, color: Colors.deepPurpleAccent),
-                  ),
-                  //isDense: true,
-                  filled: true,
-                  labelText: 'Mobile number',
-                ),
-              ),
+              MobileNumberTextField(mobileNumber: _mobileNumber),
               SizedBox(
                 height: _height,
               ),
@@ -235,62 +208,16 @@ class _SignUpState extends ConsumerState<SignUp> {
                       ),
                     ),
               const SizedBox(height: 14),
-              ElevatedButton(
-                style: signUpButtonStyle,
-                onPressed: () {
-                  GPassword gPassword = GPassword();
-                  List<String> passwords = gPassword.generateList();
-                  String password = gPassword.generate(passwordLength: 8);
-                  _password.text = password;
-                },
-                child: const Text(
-                  'GENERATE PASSWORD',
-                  style: blackTextButton,
-                ),
-              ),
+              GenerateButton(signUpButtonStyle: signUpButtonStyle, password: _password),
               const SizedBox(height: 14),
-              ElevatedButton(
-                style: logInButtonStyle,
-                onPressed: () async {
-                  if (_validateKey.currentState!.validate()) {
-                    //Пример использования
-                    // final open = Openapi();
-                    // open.setBasicAuth('John Doe', 'user@example.com', '9876556789');
-                    //final request =  await open.getDefaultApi().apiMeGet();
-                    // final request =  await open.getBasicAuth('John Doe', 'user@example.com', '9876556789');
-                    //  final request =  await open.getDefaultApi().apiMeGet(
-                    //      : {'name' : 'John Doe', 'email': 'user@example.com', 'password':'9876556789'});
-                    // final dio = Dio();
-                    // dio.options.baseUrl =
-                    //     'https://testwork.shot.dinolab.com';
-                    // final options = BaseOptions(
-                    //   baseUrl: 'https://testwork.shot.dinolab.com',
-                    //   // connectTimeout: Duration(seconds: 5),
-                    //   // receiveTimeout: Duration(seconds: 3),
-                    // );
-                    // final anotherDio = Dio(options);
-                    // final response = await anotherDio.get(
-                    //   '/api/me',
-                    //   queryParameters: {
-                    //     'name': 'John Doe',
-                    //     'email': 'user@example.com'
-                    //   },
-                    // );
-                    // print(response.data.toString());
-                    String login = _login.text;
-                    String mobileNumber = _mobileNumber.text;
-                    String password = _password.text;
-                    authState = AuthState(email: login, password: password);
-                    final open = Openapi();
-                    open.setBasicAuth('John Doe', login, password);
-                    context.go('/auth_info');
-                  }
-                },
-                child: const Text('NEXT', style: whiteTextButton),
-              ),
+              LoginButtonSignUp(
+                  logInButtonStyle: logInButtonStyle,
+                  validateKey: _validateKey,
+                  login: _login,
+                  mobileNumber: _mobileNumber,
+                  password: _password),
               const SizedBox(height: 14),
               TextButton(
-                  //style: forgotButtonStyle,
                   onPressed: () {
                     context.go('/login');
                   },
@@ -303,3 +230,8 @@ class _SignUpState extends ConsumerState<SignUp> {
     );
   }
 }
+
+
+
+
+
