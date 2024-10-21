@@ -288,6 +288,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.3.0"
+  gpassword:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "1758bec53c962b673d7b010f344ef460640f8c2c"
+      url: "https://github.com/arminmehraeen/GPassword.git"
+    source: git
+    version: "0.0.1"
   graphs:
     dependency: transitive
     description:

@@ -2,6 +2,7 @@ import 'package:dinolab/ui/common/button_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:gpassword/gpassword.dart';
 import '../data/open_api/src/api.dart';
 import '../domain/auth_state.dart';
 import '../domain/check_password_not_empty.dart';
@@ -21,6 +22,7 @@ class _SignUpState extends ConsumerState<SignUp> {
   final _password = TextEditingController();
   final _confirmPassword = TextEditingController();
   final _validateKey = GlobalKey<FormState>();
+  bool obscureText = true;
   final double _height = 20.0;
 
   final ButtonStyle logInButtonStyle = OutlinedButton.styleFrom(
@@ -162,9 +164,16 @@ class _SignUpState extends ConsumerState<SignUp> {
                   return null;
                 },
                 controller: _password,
-                obscureText: true,
+                obscureText: obscureText,
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.remove_red_eye_outlined),
+                    onPressed: () {
+                      obscureText = !obscureText;
+                      setState(() {});
+                    },
+                  ),
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -202,9 +211,16 @@ class _SignUpState extends ConsumerState<SignUp> {
                         return null;
                       },
                       controller: _confirmPassword,
-                      obscureText: true,
+                      obscureText: obscureText,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          icon: const Icon(Icons.remove_red_eye_outlined),
+                          onPressed: () {
+                            obscureText = !obscureText;
+                            setState(() {});
+                          },
+                        ),
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 10),
@@ -222,7 +238,10 @@ class _SignUpState extends ConsumerState<SignUp> {
               ElevatedButton(
                 style: signUpButtonStyle,
                 onPressed: () {
-                  if (_validateKey.currentState!.validate()) {}
+                  GPassword gPassword = GPassword();
+                  List<String> passwords = gPassword.generateList();
+                  String password = gPassword.generate(passwordLength: 8);
+                  _password.text = password;
                 },
                 child: const Text(
                   'GENERATE PASSWORD',

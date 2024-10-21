@@ -16,6 +16,8 @@ dependencies:
   equatable:
   flutter_riverpod:
   go_router:
+  gpassword:
+    git: https://github.com/arminmehraeen/GPassword.git
 
 
 dev_dependencies:
