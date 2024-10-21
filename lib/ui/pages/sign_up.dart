@@ -46,6 +46,8 @@ class _SignUpState extends ConsumerState<SignUp> {
   void dispose() {
     _login.dispose();
     _password.dispose();
+    _mobileNumber.dispose();
+    _confirmPassword.dispose();
     super.dispose();
   }
 
@@ -169,44 +171,47 @@ class _SignUpState extends ConsumerState<SignUp> {
               ),
               (checkPassword == '')
                   ? Container()
-                  : TextFormField(
-                      validator: (value) {
-                        if (value != _password.text) {
-                          return "passwords don't match";
-                        }
-                        if (value == null || value.isEmpty) {
-                          return "Password is missed or empty";
-                        } else if (value.length < 8) {
-                          return "Password is too short";
-                        } else if (value.length > 50) {
-                          return "Password is too long";
-                        }
-                        return null;
-                      },
-                      controller: _confirmPassword,
-                      obscureText: obscureText,
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        suffixIcon: IconButton(
-                          icon: const Icon(Icons.remove_red_eye_outlined),
-                          onPressed: () {
-                            obscureText = !obscureText;
-                            setState(() {});
-                          },
+                  : Padding(
+                    padding: const EdgeInsets.only(top: 16.0),
+                    child: TextFormField(
+                        validator: (value) {
+                          if (value != _password.text) {
+                            return "passwords don't match";
+                          }
+                          if (value == null || value.isEmpty) {
+                            return "Password is missed or empty";
+                          } else if (value.length < 8) {
+                            return "Password is too short";
+                          } else if (value.length > 50) {
+                            return "Password is too long";
+                          }
+                          return null;
+                        },
+                        controller: _confirmPassword,
+                        obscureText: obscureText,
+                        keyboardType: TextInputType.text,
+                        decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                            icon: const Icon(Icons.remove_red_eye_outlined),
+                            onPressed: () {
+                              obscureText = !obscureText;
+                              setState(() {});
+                            },
+                          ),
+                          fillColor: Colors.white,
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                            borderSide: BorderSide(
+                                width: 10, color: Colors.deepPurpleAccent),
+                          ),
+                          //isDense: true,
+                          filled: true,
+                          labelText: 'Confirm password',
                         ),
-                        fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 10),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                          borderSide: BorderSide(
-                              width: 10, color: Colors.deepPurpleAccent),
-                        ),
-                        //isDense: true,
-                        filled: true,
-                        labelText: 'Confirm password',
                       ),
-                    ),
+                  ),
               const SizedBox(height: 14),
               GenerateButton(
                   signUpButtonStyle: signUpButtonStyle, password: _password),
