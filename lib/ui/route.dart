@@ -1,9 +1,10 @@
-import 'package:dinolab/ui/auth_info_page.dart';
-import 'package:dinolab/ui/log_in.dart';
-import 'package:dinolab/ui/sign_up.dart';
+import 'package:dinolab/ui/pages/auth_info_page.dart';
+import 'package:dinolab/ui/pages/home_page.dart';
+import 'package:dinolab/ui/pages/log_in.dart';
+import 'package:dinolab/ui/pages/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'home_page.dart';
+
 
 final GoRouter router = GoRouter(
   routes: <RouteBase>[

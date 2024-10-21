@@ -3,10 +3,10 @@ import 'package:dinolab/ui/common/text_field/password_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import '../domain/check_password_not_empty.dart';
-import 'common/buttons/generate_button.dart';
-import 'common/buttons/log_in_button.dart';
-import 'common/text_field/mobile_number_text_field.dart';
+import '../../domain/check_password_not_empty.dart';
+import '../common/buttons/generate_button.dart';
+import '../common/buttons/log_in_button.dart';
+import '../common/text_field/mobile_number_text_field.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({super.key});

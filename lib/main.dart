@@ -1,4 +1,3 @@
-import 'package:dinolab/ui/home_page.dart';
 import 'package:dinolab/ui/route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
