@@ -167,7 +167,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                   ? Container()
                   : TextFormField(
                       validator: (value) {
-                        if (value != _confirmPassword) {
+                        if (value != _password.text) {
                           return "passwords don't match";
                         }
                         if (value == null || value.isEmpty) {

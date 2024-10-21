@@ -19,7 +19,6 @@ dependencies:
   gpassword:
     git: https://github.com/arminmehraeen/GPassword.git
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
