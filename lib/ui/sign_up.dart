@@ -17,7 +17,7 @@ class SignUp extends ConsumerStatefulWidget {
 
 class _SignUpState extends ConsumerState<SignUp> {
   final _login = TextEditingController();
-  final _mobileNumber = TextEditingController();
+  final _mobileNumber = TextEditingController(text: '+91-');
   final _password = TextEditingController();
   final _confirmPassword = TextEditingController();
   final _validateKey = GlobalKey<FormState>();
@@ -126,17 +126,6 @@ class _SignUpState extends ConsumerState<SignUp> {
                     return "Input";
                   }
                   return null;
-                },
-                onChanged: (value) {
-                  print(value);
-                  if(value.isEmpty){
-                    _mobileNumber.text = '+91-';
-                  }
-                  // if (value.length == 1 && value != '+') {
-                  //   _mobileNumber.text = '+' + _mobileNumber.text;
-                  // }else if(value.length == 3 && !value.contains('-')){
-                  //   _mobileNumber.text = _mobileNumber.text + '-';
-                  // }
                 },
                 controller: _mobileNumber,
                 keyboardType: TextInputType.phone,
