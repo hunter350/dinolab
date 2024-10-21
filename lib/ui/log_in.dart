@@ -4,7 +4,6 @@ import 'package:dinolab/ui/sign_up.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
 import '../data/open_api/src/api.dart';
 import '../domain/auth_state.dart';
 
@@ -19,8 +18,6 @@ class _LogInState extends State<LogIn> {
   final _login = TextEditingController();
   final _password = TextEditingController();
   final _validateKey = GlobalKey<FormState>();
-  // final _loginKey = GlobalKey<FormState>();
-  // final _passwordKey = GlobalKey<FormState>();
   final double _height = 20.0;
 
   final ButtonStyle signUpButtonStyle = OutlinedButton.styleFrom(
@@ -183,15 +180,10 @@ class _LogInState extends State<LogIn> {
                         final open = Openapi();
                         open.setBasicAuth('John Doe', login, password);
                         context.go('/auth_info');
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => AuthInfoPage()));
                       }
                     },
                     child: const Text(
                       'LOG IN',
-                      //maxLines: 2,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 16,

@@ -3,6 +3,7 @@ import 'package:dinolab/ui/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'common/button_style.dart';
 import 'common/log_in_button.dart';
 import 'common/my_list_title.dart';
 import 'common/sign_up_button.dart';
@@ -10,25 +11,7 @@ import 'common/sign_up_button.dart';
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final ButtonStyle logInButtonStyleDrawer = OutlinedButton.styleFrom(
-    backgroundColor: Colors.deepPurpleAccent.shade100,
-    minimumSize: const Size(100, 50),
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(16.0)),
-    ),
-  );
 
-  final ButtonStyle signUpButtonStyleDrawer = OutlinedButton.styleFrom(
-    backgroundColor: Colors.cyan.shade50,
-    minimumSize: const Size(150, 50),
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(16.0)),
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
