@@ -31,7 +31,6 @@ class MobileNumberTextField extends StatelessWidget {
           borderSide:
           BorderSide(width: 10, color: Colors.deepPurpleAccent),
         ),
-        //isDense: true,
         filled: true,
         labelText: 'Mobile number',
       ),

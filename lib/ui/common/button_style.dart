@@ -1,8 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-import 'colors.dart';
-
 const blackTextButton = TextStyle(
     color: Colors.black87,
     fontSize: 18,

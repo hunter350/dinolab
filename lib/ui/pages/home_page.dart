@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../common/button_style.dart';
 import '../common/buttons/log_in_button.dart';
 import '../common/buttons/sign_up_button.dart';
