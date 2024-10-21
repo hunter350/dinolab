@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../data/open_api/src/api.dart';
 import '../domain/auth_state.dart';
 import 'common/forgot_password.dart';
+import 'common/login_form_field.dart';
 import 'common/sign_up_button.dart';
 
 class LogIn extends StatefulWidget {
@@ -85,32 +86,7 @@ class _LogInState extends State<LogIn> {
                 ),
               ),
               Text('Login, email or mobile number'),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Email is missed or empty";
-                  } else if (value.length > 50) {
-                    return "Email is too long";
-                  } else if (!value.contains('@') || !value.contains('.')) {
-                    return "Email isn't valid";
-                  }
-                  return null;
-                },
-                controller: _login,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  fillColor: Colors.white,
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                    borderSide:
-                        BorderSide(width: 10, color: Colors.deepPurpleAccent),
-                  ),
-                  filled: true,
-                  labelText: 'Login',
-                ),
-              ),
+              LoginFormField(login: _login),
               SizedBox(
                 height: _height,
               ),
@@ -171,3 +147,4 @@ class _LogInState extends State<LogIn> {
     );
   }
 }
+
