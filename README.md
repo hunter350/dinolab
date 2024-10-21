@@ -1,6 +1,8 @@
 # dinolab
 
 DinoLab project.
+Video Youtube
+https://youtu.be/ijYnGofpu6M
 
 ## Screens
 Home Screen
