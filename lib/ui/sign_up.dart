@@ -86,7 +86,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                     return "Email is missed or empty";
                   } else if (value.length > 50) {
                     return "Email is too long";
-                  }else if(!value.contains('@') || !value.contains('.')){
+                  } else if (!value.contains('@') || !value.contains('.')) {
                     return "Email isn't valid";
                   }
                   return null;
@@ -118,6 +118,7 @@ class _SignUpState extends ConsumerState<SignUp> {
               ),
               Text('Mobile number'),
               TextFormField(
+                maxLength: 15,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Input";
@@ -126,8 +127,19 @@ class _SignUpState extends ConsumerState<SignUp> {
                   }
                   return null;
                 },
+                onChanged: (value) {
+                  print(value);
+                  if(value.isEmpty){
+                    _mobileNumber.text = '+91-';
+                  }
+                  // if (value.length == 1 && value != '+') {
+                  //   _mobileNumber.text = '+' + _mobileNumber.text;
+                  // }else if(value.length == 3 && !value.contains('-')){
+                  //   _mobileNumber.text = _mobileNumber.text + '-';
+                  // }
+                },
                 controller: _mobileNumber,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
                   contentPadding:
@@ -221,8 +233,7 @@ class _SignUpState extends ConsumerState<SignUp> {
               ElevatedButton(
                 style: signUpButtonStyle,
                 onPressed: () {
-                  if (_validateKey.currentState!.validate()) {
-                  }
+                  if (_validateKey.currentState!.validate()) {}
                 },
                 child: const Text(
                   'GENERATE PASSWORD',
