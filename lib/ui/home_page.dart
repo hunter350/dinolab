@@ -3,6 +3,9 @@ import 'package:dinolab/ui/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import 'common/log_in_button.dart';
+import 'common/sign_up_button.dart';
+
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
@@ -62,7 +65,6 @@ class HomePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
@@ -83,13 +85,7 @@ class HomePage extends StatelessWidget {
               Spacer(),
               ElevatedButton(
                 style: signUpButtonStyleDrawer,
-                onPressed: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => AuthInfoPage()
-                  //             ));
-                },
+                onPressed: () {},
                 child: const Text(
                   'FREE PRODUCT DEMO',
                   style: TextStyle(
@@ -102,20 +98,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              ElevatedButton(
-                style: logInButtonStyleDrawer,
-                onPressed: () {
-                  context.go('/login');
-                },
-                child: const Text(
-                  'LOG IN',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
+              LogInButton(logInButtonStyle: logInButtonStyleDrawer),
               const SizedBox(
                 height: 16,
               )
@@ -161,34 +144,8 @@ class HomePage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ElevatedButton(
-                    style: logInButtonStyle,
-                    onPressed: () {
-                      context.go('/login');
-                    },
-                    child: const Text(
-                      'LOG IN',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: signUpButtonStyle,
-                    onPressed: () {
-                      context.go('/sign_up');
-                    },
-                    child: const Text(
-                      'SIGN UP',
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+                  LogInButton(logInButtonStyle: logInButtonStyle),
+                  SignUpButton(signUpButtonStyle: signUpButtonStyle),
                 ],
               ),
             ],
