@@ -11,7 +11,7 @@ class MobileNumberTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      maxLength: 15,
+      maxLength: 14,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return "Input";
