@@ -2,7 +2,6 @@ import 'package:dinolab/ui/common/button_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-
 import '../data/open_api/src/api.dart';
 import '../domain/auth_state.dart';
 import '../domain/check_password_not_empty.dart';
@@ -22,9 +21,6 @@ class _SignUpState extends ConsumerState<SignUp> {
   final _password = TextEditingController();
   final _confirmPassword = TextEditingController();
   final _validateKey = GlobalKey<FormState>();
-  // final _loginKey = GlobalKey<FormState>();
-  // final _mobileNumberKey = GlobalKey<FormState>();
-  // final _passwordKey = GlobalKey<FormState>();
   final double _height = 20.0;
 
   final ButtonStyle logInButtonStyle = OutlinedButton.styleFrom(
@@ -60,8 +56,6 @@ class _SignUpState extends ConsumerState<SignUp> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        //leading: Text('Register as a Parent'),
-        //centerTitle: true,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -69,8 +63,6 @@ class _SignUpState extends ConsumerState<SignUp> {
                 style: TextStyle(
                   color: Colors.black87,
                   fontSize: 18,
-                  //fontWeight: FontWeight.w600,
-                  //letterSpacing: 1.2
                 )),
             Image.asset(
               'assets/logo.png',
@@ -101,11 +93,6 @@ class _SignUpState extends ConsumerState<SignUp> {
                 keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   fillColor: Colors.white,
-                  //focusColor: Colors.deepPurpleAccent,
-                  // enabledBorder: OutlineInputBorder(
-                  //   borderSide: BorderSide(width: 3, color: Colors.deepPurpleAccent),
-                  // ),
-
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   border: OutlineInputBorder(
@@ -113,10 +100,6 @@ class _SignUpState extends ConsumerState<SignUp> {
                     borderSide:
                         BorderSide(width: 10, color: Colors.deepPurpleAccent),
                   ),
-                  // enabledBorder: OutlineInputBorder(
-                  //   borderSide: BorderSide(width: 3, color: Colors.deepPurpleAccent),
-                  // ),
-                  //isDense: true,
                   filled: true,
                   labelText: 'Email',
                 ),
@@ -237,11 +220,6 @@ class _SignUpState extends ConsumerState<SignUp> {
                 style: signUpButtonStyle,
                 onPressed: () {
                   if (_validateKey.currentState!.validate()) {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) => LogIn()
-                    //     ));
                   }
                 },
                 child: const Text(
