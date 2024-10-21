@@ -1,16 +1,22 @@
 # dinolab
 
-A new Flutter project.
+DinoLab project.
 
-## Getting Started
+## Архитектура проекта
+Разбил приложение на 3 слоя:
+- presentation
+- domain
+- data
 
-This project is a starting point for a Flutter application.
+## Тестирование
+Создал каркас для будущих тестов
 
-A few resources to get you started if this is your first Flutter project:
+## Реализовал экраны в соотвествии с ТЗ
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Что нужно сделать
+- Интернационализация
+- DI
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
