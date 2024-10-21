@@ -1,4 +1,5 @@
 import 'package:dinolab/ui/common/button_style.dart';
+import 'package:dinolab/ui/common/password_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -93,7 +94,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                 },
                 controller: _login,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -106,22 +107,18 @@ class _SignUpState extends ConsumerState<SignUp> {
                   labelText: 'Email',
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   'Your future login',
                   style: TextStyle(fontSize: 12),
                 ),
               ),
-              SizedBox(
-                height: _height,
-              ),
-              Text('Mobile number'),
+              SizedBox(height: _height),
+              const Text('Mobile number'),
               MobileNumberTextField(mobileNumber: _mobileNumber),
-              SizedBox(
-                height: _height,
-              ),
-              Text('Password'),
+             // SizedBox(height: _height),
+              const Text('Password'),
               TextFormField(
                 onChanged: (value) {
                   ref.read(checkPasswordProvider.notifier).state = value;
@@ -150,7 +147,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     borderSide:
                         BorderSide(width: 10, color: Colors.deepPurpleAccent),
@@ -160,7 +157,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                   labelText: 'Password',
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   'Use letters, numbers and special characters',
@@ -197,7 +194,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         fillColor: Colors.white,
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 10, horizontal: 10),
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                           borderSide: BorderSide(
                               width: 10, color: Colors.deepPurpleAccent),
@@ -208,7 +205,8 @@ class _SignUpState extends ConsumerState<SignUp> {
                       ),
                     ),
               const SizedBox(height: 14),
-              GenerateButton(signUpButtonStyle: signUpButtonStyle, password: _password),
+              GenerateButton(
+                  signUpButtonStyle: signUpButtonStyle, password: _password),
               const SizedBox(height: 14),
               LoginButtonSignUp(
                   logInButtonStyle: logInButtonStyle,
@@ -230,8 +228,3 @@ class _SignUpState extends ConsumerState<SignUp> {
     );
   }
 }
-
-
-
-
-

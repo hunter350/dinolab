@@ -92,6 +92,7 @@ class _LogInState extends State<LogIn> {
               PasswordFormField(
                 password: _password,
                 obscureText: obscureText,
+                labelText: 'Password',
               ),
               const SizedBox(height: 14),
               Row(

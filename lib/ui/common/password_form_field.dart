@@ -5,11 +5,14 @@ class PasswordFormField extends StatefulWidget {
     super.key,
     required TextEditingController password,
     required bool obscureText,
+    required String labelText
   })  : _password = password,
-        _obscureText = obscureText;
+        _obscureText = obscureText,
+        _labelText = labelText;
 
   final TextEditingController _password;
   bool _obscureText;
+  final String _labelText;
 
   @override
   State<PasswordFormField> createState() => _PasswordFormFieldState();
@@ -49,7 +52,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
         ),
         //isDense: true,
         filled: true,
-        labelText: 'Password',
+        labelText: widget._labelText,
       ),
     );
   }
