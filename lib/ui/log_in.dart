@@ -1,7 +1,3 @@
-import 'package:dinolab/ui/auth_info_page.dart';
-import 'package:dinolab/ui/home_page.dart';
-import 'package:dinolab/ui/sign_up.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../data/open_api/src/api.dart';
@@ -95,7 +91,7 @@ class _LogInState extends State<LogIn> {
                     return "Email is missed or empty";
                   } else if (value.length > 50) {
                     return "Email is too long";
-                  }else if(!value.contains('@') || !value.contains('.')){
+                  } else if (!value.contains('@') || !value.contains('.')) {
                     return "Email isn't valid";
                   }
                   return null;
@@ -158,51 +154,11 @@ class _LogInState extends State<LogIn> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ElevatedButton(
-                    style: logInButtonStyle,
-                    onPressed: () async {
-                      if (_validateKey.currentState!.validate()) {
-                        //Пример использования
-                        // final open = Openapi();
-                        // open.setBasicAuth('John Doe', 'user@example.com', '9876556789');
-                        //final request =  await open.getDefaultApi().apiMeGet();
-                        // final request =  await open.getBasicAuth('John Doe', 'user@example.com', '9876556789');
-                        //  final request =  await open.getDefaultApi().apiMeGet(
-                        //      : {'name' : 'John Doe', 'email': 'user@example.com', 'password':'9876556789'});
-                        // final dio = Dio();
-                        // dio.options.baseUrl =
-                        //     'https://testwork.shot.dinolab.com';
-                        // final options = BaseOptions(
-                        //   baseUrl: 'https://testwork.shot.dinolab.com',
-                        //   // connectTimeout: Duration(seconds: 5),
-                        //   // receiveTimeout: Duration(seconds: 3),
-                        // );
-                        // final anotherDio = Dio(options);
-                        // final response = await anotherDio.get(
-                        //   '/api/me',
-                        //   queryParameters: {
-                        //     'name': 'John Doe',
-                        //     'email': 'user@example.com'
-                        //   },
-                        // );
-                        // print(response.data.toString());
-                        String login = _login.text;
-                        String password = _password.text;
-                        authState = AuthState(email: login, password: password);
-                        final open = Openapi();
-                        open.setBasicAuth('John Doe', login, password);
-                        context.go('/auth_info');
-                      }
-                    },
-                    child: const Text(
-                      'LOG IN',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
+                  SignUpVar3(
+                      logInButtonStyle: logInButtonStyle,
+                      validateKey: _validateKey,
+                      login: _login,
+                      password: _password),
                   ForgotPassword(forgotButtonStyle: forgotButtonStyle),
                 ],
               ),
@@ -215,5 +171,3 @@ class _LogInState extends State<LogIn> {
     );
   }
 }
-
-
