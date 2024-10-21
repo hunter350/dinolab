@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import 'common/log_in_button.dart';
+import 'common/my_list_title.dart';
 import 'common/sign_up_button.dart';
 
 class HomePage extends StatelessWidget {
@@ -153,25 +154,6 @@ class HomePage extends StatelessWidget {
         ),
       ),
       //),
-    );
-  }
-}
-
-class MyListTitle extends StatelessWidget {
-  final String title;
-
-  const MyListTitle({super.key, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          )),
-      onTap: () {},
     );
   }
 }
