@@ -98,7 +98,7 @@ class _LogInState extends State<LogIn> {
                 },
                 controller: _login,
                 keyboardType: TextInputType.text,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -114,7 +114,7 @@ class _LogInState extends State<LogIn> {
               SizedBox(
                 height: _height,
               ),
-              Text('Password'),
+              const Text('Password'),
               TextFormField(
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -140,7 +140,7 @@ class _LogInState extends State<LogIn> {
                   fillColor: Colors.white,
                   contentPadding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  border: OutlineInputBorder(
+                  border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                     borderSide:
                         BorderSide(width: 10, color: Colors.deepPurpleAccent),
