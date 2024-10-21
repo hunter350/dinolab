@@ -5,7 +5,7 @@ DinoLab project.
 ## Screens
 Home
 <h1>
-  <img src="https://github.com/hunter350/shaders_example/blob/master/screenshots/home.PNG" alt="Image" width="200" style="border-radius: 10px;"> </img>
+  <img src="https://github.com/hunter350/dinolab/blob/master/screenshots/home.PNG" alt="Image" width="200" style="border-radius: 10px;"> </img>
 </h1>
 
 ## Архитектура проекта
