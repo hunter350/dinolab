@@ -3,8 +3,6 @@ import 'package:dinolab/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'common/button_style.dart';
-
 class AuthInfoPage extends StatelessWidget {
   const AuthInfoPage({super.key});
 
@@ -25,11 +23,6 @@ class AuthInfoPage extends StatelessWidget {
               onPressed: () {
                 authState = AuthState();
                 context.go('/');
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) => HomePage()
-                //             ));
               },
               icon: const Icon(Icons.exit_to_app)),
         ],
