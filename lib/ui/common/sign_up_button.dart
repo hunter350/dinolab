@@ -27,3 +27,30 @@ class SignUpButton extends StatelessWidget {
     );
   }
 }
+
+class SignUpVar2 extends StatelessWidget {
+  const SignUpVar2({
+    super.key,
+    required this.signUpButtonStyle,
+  });
+
+  final ButtonStyle signUpButtonStyle;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: signUpButtonStyle,
+      onPressed: () {
+        context.go('/sign_up');
+      },
+      child: const Text(
+        'SIGN UP',
+        style: TextStyle(
+          color: Colors.black87,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+}
