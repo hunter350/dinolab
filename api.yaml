@@ -1,0 +1,260 @@
+openapi: 3.0.3
+info:
+  title: mobile
+  version: 1.0.0
+paths:
+  "/api/me":
+    post:
+      summary: GET /api/me
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Show user profile
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                  name:
+                    type: string
+                  avatar:
+                    type: string
+
+              examples:
+                - email: user@example.com
+                  name: John Doe
+                  avatar: https://robohash.org/atconsequuntursaepe.png?size=300x300
+
+              example:
+                email: user@example.com
+                name: John Doe
+                avatar: https://robohash.org/atconsequuntursaepe.png?size=300x300
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required: ["errors"]
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required: ["code", "description"]
+                      properties:
+                        code:
+                          type: integer
+                        description:
+                          type: text
+              examples:
+                - errors:
+                    - code: 1
+                      description: Unauthorized
+
+              example:
+                errors:
+                  - code: 1
+                    description: Unauthorized
+
+  "/api/login":
+    post:
+      summary: POST /api/login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+
+            examples:
+              - login: user@example.com
+                password: '9876556789'
+
+            example:
+              login: user@example.com
+              password: '9876556789'
+      responses:
+        '200':
+          description: Loging you in
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+
+              examples:
+                - access_token: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.bd5ZPEAFfTEX3wODkbtWteoy1jL9u9kFd9MvKX4v_x0
+
+              example:
+                access_token: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.bd5ZPEAFfTEX3wODkbtWteoy1jL9u9kFd9MvKX4v_x0
+
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required: ["errors"]
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required: ["code", "description"]
+                      properties:
+                        code:
+                          type: integer
+                        description:
+                          type: text
+              examples:
+                - errors:
+                    - code: 2
+                      description: Login or password are invalid
+
+              example:
+                errors:
+                  - code: 2
+                    description: Login or password are invalid
+
+  "/api/register":
+    post:
+      summary: POST /api/register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required: ["name", "email", "password"]
+              properties:
+                name:
+                  type: string
+                  description: "Your name"
+                  minLength: 1
+                  maxLength: 50
+                email:
+                  type: string
+                  description: "Your e-mail"
+                  minLength: 1
+                  maxLength: 50
+                password:
+                  type: string
+                  description: "Your password"
+                  minLength: 1
+                  maxLength: 50
+
+            examples:
+              - email: user@example.com
+                name: John Doe
+                password: '9876556789'
+
+            example:
+              email: user@example.com
+              name: John Doe
+              password: '9876556789'
+
+      responses:
+        '422':
+          description: Returns validation errors
+          content:
+            application/json:
+              schema:
+                type: object
+                required: ["errors"]
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required: ["code", "description"]
+                      properties:
+                        code:
+                          type: integer
+                        description:
+                          type: text
+
+              examples:
+                - errors:
+                    - code: 3
+                      description: Email is missed or empty
+
+                - errors:
+                    - code: 4
+                      description: Email is too long
+
+                - errors:
+                    - code: 5
+                      description: Email is incorrect
+
+                - errors:
+                    - code: 6
+                      description: Name is missed or empty
+
+                - errors:
+                    - code: 7
+                      description: Name is too long
+
+                - errors:
+                    - code: 8
+                      description: Password is missed or empty
+
+                - errors:
+                    - code: 9
+                      description: Password is too long
+
+                - errors:
+                    - code: 10
+                      description: Email is taken
+
+              example:
+                errors:
+                  - code: 3
+                    description: Email is missed or empty
+                  - code: 4
+                    description: Email is too long
+                  - code: 5
+                    description: Email is incorrect
+                  - code: 6
+                    description: Name is missed or empty
+                  - code: 7
+                    description: Name is too long
+                  - code: 8
+                    description: Password is missed or empty
+                  - code: 9
+                    description: Password is too long
+                  - code: 10
+                    description: Email is taken
+
+        '201':
+          description: Returns access token
+          content:
+            application/json:
+              schema:
+                type: object
+                required: ["access_token"]
+                properties:
+                  access_token:
+                    type: strung
+                    description: Your access token
+              examples:
+                - access_token: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.bd5ZPEAFfTEX3wODkbtWteoy1jL9u9kFd9MvKX4v_x0
+
+              example:
+                access_token: eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3fQ.bd5ZPEAFfTEX3wODkbtWteoy1jL9u9kFd9MvKX4v_x0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+servers: []

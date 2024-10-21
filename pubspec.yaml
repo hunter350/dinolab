@@ -1,0 +1,32 @@
+name: dinolab
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  openapi_generator_annotations:
+  dio:
+  one_of_serializer:
+  built_value:
+  equatable:
+  flutter_riverpod:
+  go_router:
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  openapi_generator: ^5.0.2
+  built_value_generator:
+  build_runner:
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
