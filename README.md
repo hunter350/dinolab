@@ -8,7 +8,7 @@ https://youtu.be/ijYnGofpu6M
 ## Apk
 Папка apk - файл app-release.apk
 
-Для скачивания открываем файл на GitHub, и в правом углу будет иконка download
+Для скачивания открываем файл на GitHub, и в правом верхнем углу будет иконка download
 
 ## Screens
 Home Screen
