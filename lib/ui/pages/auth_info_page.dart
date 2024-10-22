@@ -9,23 +9,9 @@ class AuthInfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Image.asset(
-          'assets/logo.png',
-          width: 160,
-        ),
-        iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
-        backgroundColor: Colors.white,
-        actions: [
-          IconButton(
-              onPressed: () {
-                authState = AuthState();
-                context.go('/');
-              },
-              icon: const Icon(Icons.exit_to_app)),
-        ],
-      ),
+      appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, kToolbarHeight),
+          child: AppBarAuthPage()),
       body: Padding(
         padding: const EdgeInsets.only(left: 24, right: 24, top: 20),
         child: ListView(
