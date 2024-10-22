@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PasswordFormField extends StatefulWidget {
-  PasswordFormField({
-    super.key,
-    required TextEditingController password,
-    required bool obscureText,
-    required String labelText
-  })  : _password = password,
+  PasswordFormField(
+      {super.key,
+      required TextEditingController password,
+      required bool obscureText,
+      required String labelText})
+      : _password = password,
         _obscureText = obscureText,
         _labelText = labelText;
 
@@ -45,7 +45,7 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
         ),
         fillColor: Colors.white,
         contentPadding:
-        const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(width: 10, color: Colors.deepPurpleAccent),

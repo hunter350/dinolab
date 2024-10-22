@@ -11,26 +11,34 @@ part 'api_login_post200_response.g.dart';
 /// ApiLoginPost200Response
 ///
 /// Properties:
-/// * [accessToken] 
+/// * [accessToken]
 @BuiltValue()
-abstract class ApiLoginPost200Response implements Built<ApiLoginPost200Response, ApiLoginPost200ResponseBuilder> {
+abstract class ApiLoginPost200Response
+    implements Built<ApiLoginPost200Response, ApiLoginPost200ResponseBuilder> {
   @BuiltValueField(wireName: r'access_token')
   String? get accessToken;
 
   ApiLoginPost200Response._();
 
-  factory ApiLoginPost200Response([void updates(ApiLoginPost200ResponseBuilder b)]) = _$ApiLoginPost200Response;
+  factory ApiLoginPost200Response(
+          [void updates(ApiLoginPost200ResponseBuilder b)]) =
+      _$ApiLoginPost200Response;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiLoginPost200ResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiLoginPost200Response> get serializer => _$ApiLoginPost200ResponseSerializer();
+  static Serializer<ApiLoginPost200Response> get serializer =>
+      _$ApiLoginPost200ResponseSerializer();
 }
 
-class _$ApiLoginPost200ResponseSerializer implements PrimitiveSerializer<ApiLoginPost200Response> {
+class _$ApiLoginPost200ResponseSerializer
+    implements PrimitiveSerializer<ApiLoginPost200Response> {
   @override
-  final Iterable<Type> types = const [ApiLoginPost200Response, _$ApiLoginPost200Response];
+  final Iterable<Type> types = const [
+    ApiLoginPost200Response,
+    _$ApiLoginPost200Response
+  ];
 
   @override
   final String wireName = r'ApiLoginPost200Response';
@@ -55,7 +63,9 @@ class _$ApiLoginPost200ResponseSerializer implements PrimitiveSerializer<ApiLogi
     ApiLoginPost200Response object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +115,3 @@ class _$ApiLoginPost200ResponseSerializer implements PrimitiveSerializer<ApiLogi
     return result.build();
   }
 }
-

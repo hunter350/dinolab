@@ -11,10 +11,11 @@ part 'api_login_post_request.g.dart';
 /// ApiLoginPostRequest
 ///
 /// Properties:
-/// * [email] 
-/// * [password] 
+/// * [email]
+/// * [password]
 @BuiltValue()
-abstract class ApiLoginPostRequest implements Built<ApiLoginPostRequest, ApiLoginPostRequestBuilder> {
+abstract class ApiLoginPostRequest
+    implements Built<ApiLoginPostRequest, ApiLoginPostRequestBuilder> {
   @BuiltValueField(wireName: r'email')
   String? get email;
 
@@ -23,18 +24,24 @@ abstract class ApiLoginPostRequest implements Built<ApiLoginPostRequest, ApiLogi
 
   ApiLoginPostRequest._();
 
-  factory ApiLoginPostRequest([void updates(ApiLoginPostRequestBuilder b)]) = _$ApiLoginPostRequest;
+  factory ApiLoginPostRequest([void updates(ApiLoginPostRequestBuilder b)]) =
+      _$ApiLoginPostRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiLoginPostRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiLoginPostRequest> get serializer => _$ApiLoginPostRequestSerializer();
+  static Serializer<ApiLoginPostRequest> get serializer =>
+      _$ApiLoginPostRequestSerializer();
 }
 
-class _$ApiLoginPostRequestSerializer implements PrimitiveSerializer<ApiLoginPostRequest> {
+class _$ApiLoginPostRequestSerializer
+    implements PrimitiveSerializer<ApiLoginPostRequest> {
   @override
-  final Iterable<Type> types = const [ApiLoginPostRequest, _$ApiLoginPostRequest];
+  final Iterable<Type> types = const [
+    ApiLoginPostRequest,
+    _$ApiLoginPostRequest
+  ];
 
   @override
   final String wireName = r'ApiLoginPostRequest';
@@ -66,7 +73,9 @@ class _$ApiLoginPostRequestSerializer implements PrimitiveSerializer<ApiLoginPos
     ApiLoginPostRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -123,4 +132,3 @@ class _$ApiLoginPostRequestSerializer implements PrimitiveSerializer<ApiLoginPos
     return result.build();
   }
 }
-

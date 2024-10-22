@@ -16,7 +16,6 @@ import 'package:dinolab/data/open_api/src/model/api_register_post201_response.da
 import 'package:dinolab/data/open_api/src/model/api_register_post_request.dart';
 
 class DefaultApi {
-
   final Dio _dio;
 
   final Serializers _serializers;
@@ -24,10 +23,10 @@ class DefaultApi {
   const DefaultApi(this._dio, this._serializers);
 
   /// POST /api/login
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [apiLoginPostRequest] 
+  /// * [apiLoginPostRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -37,7 +36,7 @@ class DefaultApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ApiLoginPost200Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiLoginPost200Response>> apiLoginPost({ 
+  Future<Response<ApiLoginPost200Response>> apiLoginPost({
     ApiLoginPostRequest? apiLoginPostRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -64,11 +63,12 @@ class DefaultApi {
 
     try {
       const _type = FullType(ApiLoginPostRequest);
-      _bodyData = apiLoginPostRequest == null ? null : _serializers.serialize(apiLoginPostRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = apiLoginPostRequest == null
+          ? null
+          : _serializers.serialize(apiLoginPostRequest, specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -91,11 +91,12 @@ class DefaultApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApiLoginPost200Response),
-      ) as ApiLoginPost200Response;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApiLoginPost200Response),
+            ) as ApiLoginPost200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -119,7 +120,7 @@ class DefaultApi {
   }
 
   /// GET /api/me
-  /// 
+  ///
   ///
   /// Parameters:
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
@@ -170,11 +171,12 @@ class DefaultApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApiMePost200Response),
-      ) as ApiMePost200Response;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApiMePost200Response),
+            ) as ApiMePost200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -197,7 +199,7 @@ class DefaultApi {
     );
   }
 
-  Future<Response<ApiMePost200Response>> apiMePost({ 
+  Future<Response<ApiMePost200Response>> apiMePost({
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
     Map<String, dynamic>? extra,
@@ -236,11 +238,12 @@ class DefaultApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApiMePost200Response),
-      ) as ApiMePost200Response;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApiMePost200Response),
+            ) as ApiMePost200Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -264,10 +267,10 @@ class DefaultApi {
   }
 
   /// POST /api/register
-  /// 
+  ///
   ///
   /// Parameters:
-  /// * [apiRegisterPostRequest] 
+  /// * [apiRegisterPostRequest]
   /// * [cancelToken] - A [CancelToken] that can be used to cancel the operation
   /// * [headers] - Can be used to add additional headers to the request
   /// * [extras] - Can be used to add flags to the request
@@ -277,7 +280,7 @@ class DefaultApi {
   ///
   /// Returns a [Future] containing a [Response] with a [ApiRegisterPost201Response] as data
   /// Throws [DioException] if API call or serialization fails
-  Future<Response<ApiRegisterPost201Response>> apiRegisterPost({ 
+  Future<Response<ApiRegisterPost201Response>> apiRegisterPost({
     ApiRegisterPostRequest? apiRegisterPostRequest,
     CancelToken? cancelToken,
     Map<String, dynamic>? headers,
@@ -304,11 +307,13 @@ class DefaultApi {
 
     try {
       const _type = FullType(ApiRegisterPostRequest);
-      _bodyData = apiRegisterPostRequest == null ? null : _serializers.serialize(apiRegisterPostRequest, specifiedType: _type);
-
-    } catch(error, stackTrace) {
+      _bodyData = apiRegisterPostRequest == null
+          ? null
+          : _serializers.serialize(apiRegisterPostRequest,
+              specifiedType: _type);
+    } catch (error, stackTrace) {
       throw DioException(
-         requestOptions: _options.compose(
+        requestOptions: _options.compose(
           _dio.options,
           _path,
         ),
@@ -331,11 +336,12 @@ class DefaultApi {
 
     try {
       final rawResponse = _response.data;
-      _responseData = rawResponse == null ? null : _serializers.deserialize(
-        rawResponse,
-        specifiedType: const FullType(ApiRegisterPost201Response),
-      ) as ApiRegisterPost201Response;
-
+      _responseData = rawResponse == null
+          ? null
+          : _serializers.deserialize(
+              rawResponse,
+              specifiedType: const FullType(ApiRegisterPost201Response),
+            ) as ApiRegisterPost201Response;
     } catch (error, stackTrace) {
       throw DioException(
         requestOptions: _response.requestOptions,
@@ -357,5 +363,4 @@ class DefaultApi {
       extra: _response.extra,
     );
   }
-
 }

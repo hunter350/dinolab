@@ -18,4 +18,3 @@ class AppBarLogIn extends StatelessWidget {
     );
   }
 }
-

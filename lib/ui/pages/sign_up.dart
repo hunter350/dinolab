@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../domain/check_password_not_empty.dart';
+import '../common/app_bar/app_bar_sign_up.dart';
 import '../common/buttons/generate_button.dart';
 import '../common/buttons/log_in_button.dart';
 import '../common/text_field/mobile_number_text_field.dart';
@@ -57,24 +58,8 @@ class _SignUpState extends ConsumerState<SignUp> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const Text('Register as a Parent',
-                style: TextStyle(
-                  color: Colors.black87,
-                  fontSize: 16,
-                )),
-            Image.asset(
-              'assets/logo.png',
-              width: 140,
-            ),
-          ],
-        ),
-        iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
-        backgroundColor: Colors.white,
-      ),
+      appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, 56), child: AppBarSignUp()),
       body: Padding(
         padding: const EdgeInsets.only(left: 24, right: 24, top: 20),
         child: Form(
@@ -118,13 +103,13 @@ class _SignUpState extends ConsumerState<SignUp> {
               SizedBox(height: _height),
               const Text('Mobile number'),
               MobileNumberTextField(mobileNumber: _mobileNumber),
-             // SizedBox(height: _height),
+              // SizedBox(height: _height),
               const Text('Password'),
               TextFormField(
                 onChanged: (value) {
-                  if(_password.text == ''){
+                  if (_password.text == '') {
                     ref.read(checkPasswordProvider.notifier).state = '';
-                  }else{
+                  } else {
                     ref.read(checkPasswordProvider.notifier).state = value;
                   }
                 },
@@ -172,8 +157,8 @@ class _SignUpState extends ConsumerState<SignUp> {
               (checkPassword == '')
                   ? Container()
                   : Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
-                    child: TextFormField(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: TextFormField(
                         validator: (value) {
                           if (value != _password.text) {
                             return "passwords don't match";
@@ -211,7 +196,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                           labelText: 'Confirm password',
                         ),
                       ),
-                  ),
+                    ),
               const SizedBox(height: 14),
               GenerateButton(
                   signUpButtonStyle: signUpButtonStyle, password: _password),

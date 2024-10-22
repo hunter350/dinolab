@@ -11,11 +11,12 @@ part 'api_me_post200_response.g.dart';
 /// ApiMePost200Response
 ///
 /// Properties:
-/// * [email] 
-/// * [name] 
-/// * [avatar] 
+/// * [email]
+/// * [name]
+/// * [avatar]
 @BuiltValue()
-abstract class ApiMePost200Response implements Built<ApiMePost200Response, ApiMePost200ResponseBuilder> {
+abstract class ApiMePost200Response
+    implements Built<ApiMePost200Response, ApiMePost200ResponseBuilder> {
   @BuiltValueField(wireName: r'email')
   String? get email;
 
@@ -27,18 +28,24 @@ abstract class ApiMePost200Response implements Built<ApiMePost200Response, ApiMe
 
   ApiMePost200Response._();
 
-  factory ApiMePost200Response([void updates(ApiMePost200ResponseBuilder b)]) = _$ApiMePost200Response;
+  factory ApiMePost200Response([void updates(ApiMePost200ResponseBuilder b)]) =
+      _$ApiMePost200Response;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiMePost200ResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiMePost200Response> get serializer => _$ApiMePost200ResponseSerializer();
+  static Serializer<ApiMePost200Response> get serializer =>
+      _$ApiMePost200ResponseSerializer();
 }
 
-class _$ApiMePost200ResponseSerializer implements PrimitiveSerializer<ApiMePost200Response> {
+class _$ApiMePost200ResponseSerializer
+    implements PrimitiveSerializer<ApiMePost200Response> {
   @override
-  final Iterable<Type> types = const [ApiMePost200Response, _$ApiMePost200Response];
+  final Iterable<Type> types = const [
+    ApiMePost200Response,
+    _$ApiMePost200Response
+  ];
 
   @override
   final String wireName = r'ApiMePost200Response';
@@ -77,7 +84,9 @@ class _$ApiMePost200ResponseSerializer implements PrimitiveSerializer<ApiMePost2
     ApiMePost200Response object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -141,4 +150,3 @@ class _$ApiMePost200ResponseSerializer implements PrimitiveSerializer<ApiMePost2
     return result.build();
   }
 }
-

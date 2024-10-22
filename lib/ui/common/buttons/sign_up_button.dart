@@ -68,7 +68,9 @@ class SignUpVar3 extends StatelessWidget {
     required GlobalKey<FormState> validateKey,
     required TextEditingController login,
     required TextEditingController password,
-  }) : _validateKey = validateKey, _login = login, _password = password;
+  })  : _validateKey = validateKey,
+        _login = login,
+        _password = password;
 
   final ButtonStyle logInButtonStyle;
   final GlobalKey<FormState> _validateKey;

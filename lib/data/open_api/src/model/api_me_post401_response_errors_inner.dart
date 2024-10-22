@@ -12,10 +12,13 @@ part 'api_me_post401_response_errors_inner.g.dart';
 /// ApiMePost401ResponseErrorsInner
 ///
 /// Properties:
-/// * [code] 
-/// * [description] 
+/// * [code]
+/// * [description]
 @BuiltValue()
-abstract class ApiMePost401ResponseErrorsInner implements Built<ApiMePost401ResponseErrorsInner, ApiMePost401ResponseErrorsInnerBuilder> {
+abstract class ApiMePost401ResponseErrorsInner
+    implements
+        Built<ApiMePost401ResponseErrorsInner,
+            ApiMePost401ResponseErrorsInnerBuilder> {
   @BuiltValueField(wireName: r'code')
   int get code;
 
@@ -24,18 +27,25 @@ abstract class ApiMePost401ResponseErrorsInner implements Built<ApiMePost401Resp
 
   ApiMePost401ResponseErrorsInner._();
 
-  factory ApiMePost401ResponseErrorsInner([void updates(ApiMePost401ResponseErrorsInnerBuilder b)]) = _$ApiMePost401ResponseErrorsInner;
+  factory ApiMePost401ResponseErrorsInner(
+          [void updates(ApiMePost401ResponseErrorsInnerBuilder b)]) =
+      _$ApiMePost401ResponseErrorsInner;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiMePost401ResponseErrorsInnerBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiMePost401ResponseErrorsInner> get serializer => _$ApiMePost401ResponseErrorsInnerSerializer();
+  static Serializer<ApiMePost401ResponseErrorsInner> get serializer =>
+      _$ApiMePost401ResponseErrorsInnerSerializer();
 }
 
-class _$ApiMePost401ResponseErrorsInnerSerializer implements PrimitiveSerializer<ApiMePost401ResponseErrorsInner> {
+class _$ApiMePost401ResponseErrorsInnerSerializer
+    implements PrimitiveSerializer<ApiMePost401ResponseErrorsInner> {
   @override
-  final Iterable<Type> types = const [ApiMePost401ResponseErrorsInner, _$ApiMePost401ResponseErrorsInner];
+  final Iterable<Type> types = const [
+    ApiMePost401ResponseErrorsInner,
+    _$ApiMePost401ResponseErrorsInner
+  ];
 
   @override
   final String wireName = r'ApiMePost401ResponseErrorsInner';
@@ -63,7 +73,9 @@ class _$ApiMePost401ResponseErrorsInnerSerializer implements PrimitiveSerializer
     ApiMePost401ResponseErrorsInner object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -120,4 +132,3 @@ class _$ApiMePost401ResponseErrorsInnerSerializer implements PrimitiveSerializer
     return result.build();
   }
 }
-

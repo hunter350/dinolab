@@ -15,7 +15,6 @@ class ForgotPassword extends StatelessWidget {
         onPressed: () {},
         child: const Text('FORGOT PASSWORD',
             maxLines: 2,
-            style: TextStyle(
-                fontSize: 18, color: Colors.deepPurpleAccent)));
+            style: TextStyle(fontSize: 18, color: Colors.deepPurpleAccent)));
   }
 }

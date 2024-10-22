@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const PreferredSize(
-        preferredSize: Size(double.infinity, kToolbarHeight),
+          preferredSize: Size(double.infinity, kToolbarHeight),
           child: AppBarHomePage()),
       drawer: const DrawerWidget(),
       body: Padding(

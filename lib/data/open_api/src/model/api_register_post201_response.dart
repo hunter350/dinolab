@@ -14,25 +14,34 @@ part 'api_register_post201_response.g.dart';
 /// Properties:
 /// * [accessToken] - Your access token
 @BuiltValue()
-abstract class ApiRegisterPost201Response implements Built<ApiRegisterPost201Response, ApiRegisterPost201ResponseBuilder> {
+abstract class ApiRegisterPost201Response
+    implements
+        Built<ApiRegisterPost201Response, ApiRegisterPost201ResponseBuilder> {
   /// Your access token
   @BuiltValueField(wireName: r'access_token')
   String get accessToken;
 
   ApiRegisterPost201Response._();
 
-  factory ApiRegisterPost201Response([void updates(ApiRegisterPost201ResponseBuilder b)]) = _$ApiRegisterPost201Response;
+  factory ApiRegisterPost201Response(
+          [void updates(ApiRegisterPost201ResponseBuilder b)]) =
+      _$ApiRegisterPost201Response;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiRegisterPost201ResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiRegisterPost201Response> get serializer => _$ApiRegisterPost201ResponseSerializer();
+  static Serializer<ApiRegisterPost201Response> get serializer =>
+      _$ApiRegisterPost201ResponseSerializer();
 }
 
-class _$ApiRegisterPost201ResponseSerializer implements PrimitiveSerializer<ApiRegisterPost201Response> {
+class _$ApiRegisterPost201ResponseSerializer
+    implements PrimitiveSerializer<ApiRegisterPost201Response> {
   @override
-  final Iterable<Type> types = const [ApiRegisterPost201Response, _$ApiRegisterPost201Response];
+  final Iterable<Type> types = const [
+    ApiRegisterPost201Response,
+    _$ApiRegisterPost201Response
+  ];
 
   @override
   final String wireName = r'ApiRegisterPost201Response';
@@ -55,7 +64,9 @@ class _$ApiRegisterPost201ResponseSerializer implements PrimitiveSerializer<ApiR
     ApiRegisterPost201Response object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -105,4 +116,3 @@ class _$ApiRegisterPost201ResponseSerializer implements PrimitiveSerializer<ApiR
     return result.build();
   }
 }
-

@@ -15,7 +15,8 @@ part 'api_register_post_request.g.dart';
 /// * [email] - Your e-mail
 /// * [password] - Your password
 @BuiltValue()
-abstract class ApiRegisterPostRequest implements Built<ApiRegisterPostRequest, ApiRegisterPostRequestBuilder> {
+abstract class ApiRegisterPostRequest
+    implements Built<ApiRegisterPostRequest, ApiRegisterPostRequestBuilder> {
   /// Your name
   @BuiltValueField(wireName: r'name')
   String get name;
@@ -30,18 +31,25 @@ abstract class ApiRegisterPostRequest implements Built<ApiRegisterPostRequest, A
 
   ApiRegisterPostRequest._();
 
-  factory ApiRegisterPostRequest([void updates(ApiRegisterPostRequestBuilder b)]) = _$ApiRegisterPostRequest;
+  factory ApiRegisterPostRequest(
+          [void updates(ApiRegisterPostRequestBuilder b)]) =
+      _$ApiRegisterPostRequest;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiRegisterPostRequestBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiRegisterPostRequest> get serializer => _$ApiRegisterPostRequestSerializer();
+  static Serializer<ApiRegisterPostRequest> get serializer =>
+      _$ApiRegisterPostRequestSerializer();
 }
 
-class _$ApiRegisterPostRequestSerializer implements PrimitiveSerializer<ApiRegisterPostRequest> {
+class _$ApiRegisterPostRequestSerializer
+    implements PrimitiveSerializer<ApiRegisterPostRequest> {
   @override
-  final Iterable<Type> types = const [ApiRegisterPostRequest, _$ApiRegisterPostRequest];
+  final Iterable<Type> types = const [
+    ApiRegisterPostRequest,
+    _$ApiRegisterPostRequest
+  ];
 
   @override
   final String wireName = r'ApiRegisterPostRequest';
@@ -74,7 +82,9 @@ class _$ApiRegisterPostRequestSerializer implements PrimitiveSerializer<ApiRegis
     ApiRegisterPostRequest object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -138,4 +148,3 @@ class _$ApiRegisterPostRequestSerializer implements PrimitiveSerializer<ApiRegis
     return result.build();
   }
 }
-

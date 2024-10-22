@@ -25,11 +25,10 @@ class MobileNumberTextField extends StatelessWidget {
       decoration: const InputDecoration(
         fillColor: Colors.white,
         contentPadding:
-        const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide:
-          BorderSide(width: 10, color: Colors.deepPurpleAccent),
+          borderSide: BorderSide(width: 10, color: Colors.deepPurpleAccent),
         ),
         filled: true,
         labelText: 'Mobile number',

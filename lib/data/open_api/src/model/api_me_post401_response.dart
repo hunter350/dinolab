@@ -13,26 +13,33 @@ part 'api_me_post401_response.g.dart';
 /// ApiMePost401Response
 ///
 /// Properties:
-/// * [errors] 
+/// * [errors]
 @BuiltValue()
-abstract class ApiMePost401Response implements Built<ApiMePost401Response, ApiMePost401ResponseBuilder> {
+abstract class ApiMePost401Response
+    implements Built<ApiMePost401Response, ApiMePost401ResponseBuilder> {
   @BuiltValueField(wireName: r'errors')
   BuiltList<ApiMePost401ResponseErrorsInner> get errors;
 
   ApiMePost401Response._();
 
-  factory ApiMePost401Response([void updates(ApiMePost401ResponseBuilder b)]) = _$ApiMePost401Response;
+  factory ApiMePost401Response([void updates(ApiMePost401ResponseBuilder b)]) =
+      _$ApiMePost401Response;
 
   @BuiltValueHook(initializeBuilder: true)
   static void _defaults(ApiMePost401ResponseBuilder b) => b;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<ApiMePost401Response> get serializer => _$ApiMePost401ResponseSerializer();
+  static Serializer<ApiMePost401Response> get serializer =>
+      _$ApiMePost401ResponseSerializer();
 }
 
-class _$ApiMePost401ResponseSerializer implements PrimitiveSerializer<ApiMePost401Response> {
+class _$ApiMePost401ResponseSerializer
+    implements PrimitiveSerializer<ApiMePost401Response> {
   @override
-  final Iterable<Type> types = const [ApiMePost401Response, _$ApiMePost401Response];
+  final Iterable<Type> types = const [
+    ApiMePost401Response,
+    _$ApiMePost401Response
+  ];
 
   @override
   final String wireName = r'ApiMePost401Response';
@@ -45,7 +52,8 @@ class _$ApiMePost401ResponseSerializer implements PrimitiveSerializer<ApiMePost4
     yield r'errors';
     yield serializers.serialize(
       object.errors,
-      specifiedType: const FullType(BuiltList, [FullType(ApiMePost401ResponseErrorsInner)]),
+      specifiedType: const FullType(
+          BuiltList, [FullType(ApiMePost401ResponseErrorsInner)]),
     );
   }
 
@@ -55,7 +63,9 @@ class _$ApiMePost401ResponseSerializer implements PrimitiveSerializer<ApiMePost4
     ApiMePost401Response object, {
     FullType specifiedType = FullType.unspecified,
   }) {
-    return _serializeProperties(serializers, object, specifiedType: specifiedType).toList();
+    return _serializeProperties(serializers, object,
+            specifiedType: specifiedType)
+        .toList();
   }
 
   void _deserializeProperties(
@@ -73,7 +83,8 @@ class _$ApiMePost401ResponseSerializer implements PrimitiveSerializer<ApiMePost4
         case r'errors':
           final valueDes = serializers.deserialize(
             value,
-            specifiedType: const FullType(BuiltList, [FullType(ApiMePost401ResponseErrorsInner)]),
+            specifiedType: const FullType(
+                BuiltList, [FullType(ApiMePost401ResponseErrorsInner)]),
           ) as BuiltList<ApiMePost401ResponseErrorsInner>;
           result.errors.replace(valueDes);
           break;
@@ -105,4 +116,3 @@ class _$ApiMePost401ResponseSerializer implements PrimitiveSerializer<ApiMePost4
     return result.build();
   }
 }
-
