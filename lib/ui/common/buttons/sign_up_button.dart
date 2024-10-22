@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../data/open_api/src/api.dart';
 import '../../../domain/auth_state.dart';
+import '../../../domain/check_password_not_empty.dart';
 
-class SignUpButton extends StatelessWidget {
+class SignUpButton extends ConsumerWidget {
   const SignUpButton({
     super.key,
     required this.signUpButtonStyle,
@@ -12,10 +14,11 @@ class SignUpButton extends StatelessWidget {
   final ButtonStyle signUpButtonStyle;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: signUpButtonStyle,
       onPressed: () {
+        ref.read(checkPasswordProvider.notifier).state = '';
         context.go('/sign_up');
       },
       child: const Text(
@@ -30,7 +33,7 @@ class SignUpButton extends StatelessWidget {
   }
 }
 
-class SignUpVar2 extends StatelessWidget {
+class SignUpVar2 extends ConsumerWidget {
   const SignUpVar2({
     super.key,
     required this.signUpButtonStyle,
@@ -39,10 +42,11 @@ class SignUpVar2 extends StatelessWidget {
   final ButtonStyle signUpButtonStyle;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ElevatedButton(
       style: signUpButtonStyle,
       onPressed: () {
+        ref.read(checkPasswordProvider.notifier).state = '';
         context.go('/sign_up');
       },
       child: const Text(
