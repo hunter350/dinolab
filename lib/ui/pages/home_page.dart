@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import '../common/button_style.dart';
+import '../common/app_bar/app_bat_home_page.dart';
 import '../common/buttons/log_in_button.dart';
 import '../common/buttons/sign_up_button.dart';
 import '../common/drawer_widget.dart';
-import '../common/my_list_title.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -31,15 +30,9 @@ class HomePage extends StatelessWidget {
     );
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Image.asset(
-          'assets/logo.png',
-          width: 120,
-        ),
-        centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
-      ),
+      appBar: const PreferredSize(
+        preferredSize: Size(double.infinity, kToolbarHeight),
+          child: AppBarHomePage()),
       drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -91,4 +84,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-

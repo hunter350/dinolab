@@ -38,3 +38,5 @@ final ButtonStyle signUpButtonStyleDrawer = OutlinedButton.styleFrom(
     borderRadius: BorderRadius.all(Radius.circular(16.0)),
   ),
 );
+
+const double kToolbarHeight = 56.0;
