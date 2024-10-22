@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'button_style.dart';
 import 'buttons/log_in_button.dart';
 import 'my_list_title.dart';
