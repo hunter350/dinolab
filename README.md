@@ -6,7 +6,7 @@ DinoLab project.
 https://youtu.be/ijYnGofpu6M
 
 ## Apk
-Папка apk - файл app-release.apk
+Папка apk - файл app-release.apk.
 Для скачивания открываем файл на GitHub, и в правом углу будет иконка download
 
 ## Screens
