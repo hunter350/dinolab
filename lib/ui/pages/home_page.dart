@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../common/button_style.dart';
 import '../common/buttons/log_in_button.dart';
 import '../common/buttons/sign_up_button.dart';
+import '../common/drawer_widget.dart';
 import '../common/my_list_title.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,52 +40,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 50,
-              ),
-              ListTile(
-                leading: Image.asset(
-                  'assets/logo.png',
-                  alignment: Alignment.centerLeft,
-                  width: 120,
-                ),
-              ),
-              const MyListTitle(title: 'About us'),
-              const MyListTitle(title: 'Coding'),
-              const MyListTitle(title: 'Offerings'),
-              const MyListTitle(title: 'Careers'),
-              const MyListTitle(title: 'Contact us'),
-              Spacer(),
-              ElevatedButton(
-                style: signUpButtonStyleDrawer,
-                onPressed: () {},
-                child: const Text(
-                  'FREE PRODUCT DEMO',
-                  style: TextStyle(
-                    color: Colors.black87,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              LogInButton(logInButtonStyle: logInButtonStyleDrawer),
-              const SizedBox(
-                height: 16,
-              )
-            ],
-          ),
-        ),
-      ),
+      drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Center(
@@ -135,3 +91,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+
