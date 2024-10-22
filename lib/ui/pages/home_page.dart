@@ -5,7 +5,7 @@ import '../common/buttons/sign_up_button.dart';
 import '../common/drawer_widget.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {

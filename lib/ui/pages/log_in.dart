@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../common/app_bar/app_bar_log_in.dart';
 import '../common/buttons/forgot_password.dart';
 import '../common/text_field/login_form_field.dart';
 import '../common/text_field/password_form_field.dart';
@@ -59,15 +60,9 @@ class _LogInState extends State<LogIn> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        centerTitle: true,
-        title: Image.asset(
-          'assets/logo.png',
-          width: 160,
-        ),
-        iconTheme: IconThemeData(color: Colors.deepPurpleAccent.shade200),
-        backgroundColor: Colors.white,
-      ),
+      appBar: const PreferredSize(
+          preferredSize: Size(double.infinity, kToolbarHeight),
+          child: AppBarLogIn()),
       body: Padding(
         padding: const EdgeInsets.only(left: 24, right: 24, top: 20),
         child: Form(
@@ -115,4 +110,3 @@ class _LogInState extends State<LogIn> {
     );
   }
 }
-
