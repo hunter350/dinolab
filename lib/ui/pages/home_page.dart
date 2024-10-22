@@ -41,16 +41,12 @@ class HomePage extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/logo.png',
-                // height: 300,
-                // width: 300,
               ),
               const SizedBox(
                 height: 16,
               ),
               Image.asset(
                 'assets/home_screen.png',
-                // height: 300,
-                // width: 300,
               ),
               const SizedBox(
                 height: 8,
@@ -80,7 +76,6 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      //),
     );
   }
 }
