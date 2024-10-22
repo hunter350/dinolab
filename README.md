@@ -2,8 +2,12 @@
 
 DinoLab project.
 
-Video Youtube
+## Video Youtube
 https://youtu.be/ijYnGofpu6M
+
+## Apk
+Папка apk - файл app-release.apk
+
 
 ## Screens
 Home Screen
