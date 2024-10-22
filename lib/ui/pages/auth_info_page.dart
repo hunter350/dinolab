@@ -1,6 +1,6 @@
 import 'package:dinolab/domain/auth_state.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import '../common/app_bar/app_bar_auth_page.dart';
 
 class AuthInfoPage extends StatelessWidget {
   const AuthInfoPage({super.key});
